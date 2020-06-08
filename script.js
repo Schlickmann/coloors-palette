@@ -11,6 +11,8 @@ const sliderContainers = document.querySelectorAll(".sliders");
 
 let initialColors;
 
+const savedPalettes = [];
+
 // Event Listeners
 sliders.forEach((slider) => {
   slider.addEventListener("input", hslControls);
@@ -237,6 +239,23 @@ function lockLayer(event, index) {
   } else {
     event.target.innerHTML = '<i class="fas fa-lock-open"></i>';
   }
+}
+
+// Save palette to library and local storage
+const saveContainer = document.querySelector(".save-container");
+const saveInput = document.querySelector(".save-container input");
+const saveButton = document.querySelector(".save");
+const submitSaveButton = document.querySelector(".submit-save");
+const closeSaveButton = document.querySelector(".close-save");
+
+// Event Listeners
+saveButton.addEventListener("click", openPalette);
+
+// Functions
+function openPalette(event) {
+  const popup = saveContainer.children[0];
+  saveContainer.classList.add("active");
+  popup.classList.add("active");
 }
 
 randomColors();
