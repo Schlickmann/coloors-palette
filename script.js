@@ -45,6 +45,8 @@ closeAdjustments.forEach((button, index) => {
   });
 });
 
+generateButton.addEventListener("click", randomColors);
+
 // Functions
 
 // Color generator
