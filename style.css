@@ -108,7 +108,7 @@ svg {
 }
 
 .library-panel,
-.generat-panel,
+.generate-panel,
 .save-panel {
   display: flex;
   flex-direction: column;
