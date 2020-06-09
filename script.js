@@ -251,6 +251,7 @@ const closeSaveButton = document.querySelector(".close-save");
 // Event Listeners
 saveButton.addEventListener("click", openPalette);
 closeSaveButton.addEventListener("click", closePalette);
+submitSaveButton.addEventListener("click", savePalette);
 
 // Functions
 function openPalette(event) {
@@ -263,6 +264,35 @@ function closePalette(event) {
   const popup = saveContainer.children[0];
   saveContainer.classList.remove("active");
   popup.classList.remove("active");
+}
+
+function savePalette(event) {
+  const popup = saveContainer.children[0];
+  saveContainer.classList.remove("active");
+  popup.classList.remove("active");
+
+  const name = saveInput.value;
+  const colors = [];
+  currentHexes.forEach((hex) => colors.push(hex.innerText));
+
+  let paletteNum = savedPalettes.length;
+  const paletteObj = { name, colors, number: paletteNum };
+  savedPalettes.push(paletteObj);
+
+  // saving to localstorage
+  saveIntoLocalStorage(paletteObj);
+  saveInput.value = "";
+}
+
+function saveIntoLocalStorage(palette) {
+  let localPalettes = JSON.parse(localStorage.getItem("@coolor-palette"));
+
+  if (!localPalettes) {
+    localPalettes = [];
+  }
+
+  localPalettes.push(palette);
+  localStorage.setItem("@coolor-palette", JSON.stringify(localPalettes));
 }
 
 randomColors();
