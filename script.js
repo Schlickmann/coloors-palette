@@ -250,12 +250,19 @@ const closeSaveButton = document.querySelector(".close-save");
 
 // Event Listeners
 saveButton.addEventListener("click", openPalette);
+closeSaveButton.addEventListener("click", closePalette);
 
 // Functions
 function openPalette(event) {
   const popup = saveContainer.children[0];
   saveContainer.classList.add("active");
   popup.classList.add("active");
+}
+
+function closePalette(event) {
+  const popup = saveContainer.children[0];
+  saveContainer.classList.remove("active");
+  popup.classList.remove("active");
 }
 
 randomColors();

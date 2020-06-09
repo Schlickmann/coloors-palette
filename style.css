@@ -66,7 +66,9 @@ svg {
   pointer-events: all;
 }
 
-.sliders button {
+.sliders button,
+.close-save,
+.close-library {
   position: absolute;
   top: 0;
   right: 0;
@@ -186,4 +188,26 @@ input[type="range"] {
 .save-popup.active,
 .library-popup.active {
   transform: translateY(0rem);
+}
+
+.save-name {
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+.close-save,
+.close-library {
+  border-top-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  padding: 0.5rem;
+}
+
+.submit-save {
+  margin: 2rem;
+  padding: 1rem 3rem;
+  background-color: #3b3c72;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
 }
