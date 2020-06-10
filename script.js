@@ -366,6 +366,7 @@ function getFromLocalStorage() {
   }
 
   localPalettes.forEach((paletteObj) => {
+    savedPalettes.push(paletteObj);
     createLibraryPreview(paletteObj);
   });
 }
