@@ -322,6 +322,21 @@ function createLibraryPreview(paletteObj) {
   paletteButton.classList.add(paletteObj.number);
   paletteButton.innerText = "Select";
 
+  // Add event lister to the button
+  paletteButton.addEventListener("click", (event) => {
+    closeLibrary();
+    const paletteIndex = event.target.classList[1];
+    initialColors = [];
+    savedPalettes[paletteIndex].colors.forEach((color, index) => {
+      initialColors.push(color);
+      colorDivs[index].style.backgroundColor = color;
+      const text = colorDivs[index].children[0];
+
+      checkTextContrast(color, text);
+      updateTextUI(index);
+    });
+  });
+
   // Append to library
   palette.appendChild(title);
   palette.appendChild(preview);
