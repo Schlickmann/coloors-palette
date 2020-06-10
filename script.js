@@ -335,6 +335,7 @@ function createLibraryPreview(paletteObj) {
       checkTextContrast(color, text);
       updateTextUI(index);
     });
+    resetInputs();
   });
 
   // Append to library
@@ -357,4 +358,17 @@ function closeLibrary() {
   popup.classList.remove("active");
 }
 
+function getFromLocalStorage() {
+  let localPalettes = JSON.parse(localStorage.getItem("@coolor-palette"));
+
+  if (!localPalettes) {
+    localPalettes = [];
+  }
+
+  localPalettes.forEach((paletteObj) => {
+    createLibraryPreview(paletteObj);
+  });
+}
+
+getFromLocalStorage();
 randomColors();
